@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { ChevronDown, Heart } from 'lucide-react'
 import { categoryProducts } from '../data/categoryProducts'
+import { useCart } from '../context/CartContext'
 import './CategoryShop.css'
 
 const categoryList = [
@@ -16,6 +17,7 @@ const allProducts = Object.values(categoryProducts).flat()
 function CategoryShop() {
   const { slug } = useParams()
   const navigate = useNavigate()
+  const { addToCart } = useCart()
 
   const [isOpen, setIsOpen] = useState(true)
   const [activeSlug, setActiveSlug] = useState(slug || null)
@@ -37,6 +39,11 @@ function CategoryShop() {
 
   const handleBack = () => {
     navigate('/categories')
+  }
+
+  const handleBuyNow = (product) => {
+    addToCart({ name: product.name, price: product.price, image: product.image })
+    navigate('/cart')
   }
 
   return (
@@ -83,7 +90,9 @@ function CategoryShop() {
                   <h4>{p.name}</h4>
                 </Link>
                 <span className="shop-product-sub">{p.subtitle}</span>
-                <button className="shop-buy-now-btn">Buy Now</button>
+                <button className="shop-buy-now-btn" onClick={() => handleBuyNow(p)}>
+                  Buy Now
+                </button>
               </div>
             ))}
           </div>
