@@ -1,0 +1,83 @@
+.tracking-page {
+  background-color: #FDEEE6;
+  padding: 40px 8% 80px;
+  text-align: center;
+}
+
+.tracking-heading { color: var(--color-primary); font-size: 1.4rem; margin-bottom: 24px; }
+
+.tracking-card {
+  max-width: 640px;
+  margin: 0 auto;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: left;
+}
+
+.delivery-box, .status-box, .help-box {
+  background-color: #FDEEE6;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.delivery-box h3, .status-box h3, .help-box h3 {
+  color: var(--color-primary); margin: 0 0 12px; font-size: 0.95rem;
+}
+
+.delivery-row {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.delivery-label { font-size: 0.8rem; color: var(--color-text-light); margin: 0 0 4px; }
+.delivery-date { font-weight: 700; color: var(--color-primary); margin: 0; }
+
+.status-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.status-header span { font-size: 0.8rem; color: var(--color-text-light); }
+
+.progress-track {
+  height: 6px;
+  background: #eee;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.progress-fill { height: 100%; background-color: var(--color-secondary); transition: width 0.4s ease; }
+
+.status-step {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  opacity: 0.45;
+}
+.status-step.done { opacity: 1; }
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.status-step.done .status-dot { background-color: var(--color-secondary); }
+
+.status-label { font-weight: 600; color: var(--color-primary); margin: 0 0 2px; font-size: 0.9rem; }
+.status-desc { font-size: 0.8rem; color: var(--color-text-light); margin: 0; }
+
+.help-box p { font-size: 0.85rem; color: var(--color-text-light); margin: 0; }
+.contact-support-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: var(--color-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}

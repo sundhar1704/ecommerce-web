@@ -1,0 +1,105 @@
+.payment-page {
+  background-color: #FDEEE6;
+  padding: 40px 8% 60px;
+  text-align: center;
+}
+
+.checkout-steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.step { color: var(--color-text-light); font-size: 0.9rem; }
+.step.active, .step.done { color: var(--color-secondary); font-weight: 700; }
+.step-line { width: 60px; height: 1px; background-color: var(--color-border); }
+
+.payment-heading {
+  color: var(--color-primary);
+  font-size: 1.6rem;
+  margin-bottom: 32px;
+}
+
+.payment-card-box {
+  display: flex;
+  gap: 48px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.credit-card {
+  width: 260px;
+  height: 160px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.chip { width: 36px; height: 26px; background: #f5c451; border-radius: 4px; }
+.card-number-preview { font-size: 1.1rem; letter-spacing: 2px; margin: 0; }
+.card-bottom-row { display: flex; justify-content: space-between; font-size: 0.8rem; }
+
+.payment-amount {
+  margin-top: 20px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+.payment-amount span { color: var(--color-secondary); margin-left: 8px; }
+
+.payment-form { width: 320px; }
+.payment-form label { display: block; color: var(--color-primary); font-size: 0.85rem; font-weight: 600; margin: 12px 0 6px; }
+.payment-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+.form-row { display: flex; gap: 12px; }
+.form-row > div { flex: 1; }
+
+.payment-error { color: #d32f2f; font-size: 0.85rem; margin-top: 10px; }
+
+.payment-btn-row { display: flex; gap: 12px; margin-top: 24px; }
+.cancel-btn {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+}
+.pay-now-btn {
+  flex: 1;
+  background-color: var(--color-secondary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 40px;
+  background-color: var(--color-secondary);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .payment-card-box { flex-direction: column; align-items: center; }
+}

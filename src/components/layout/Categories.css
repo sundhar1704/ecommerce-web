@@ -1,0 +1,120 @@
+.categories {
+  background-color: #FDEEE6;
+  padding: 64px 8%;
+  text-align: center;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.category-card {
+  width: 100%;
+  max-width: 361px;
+  height: 410px;
+  background-color: transparent;
+  border: 10px solid var(--color-border);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  box-sizing: border-box;
+}
+
+.category-card:hover {
+  border-color: var(--color-secondary);
+  transform: translateY(-6px);
+}
+
+.category-card-inner {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.category-card-inner img {
+  width: 100%;
+  max-width: 160px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.category-card h3 {
+  color: var(--color-primary);
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.category-card p {
+  color: var(--color-text-light);
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+}
+
+.shop-btn {
+  background-color: transparent;
+  border: 1.5px solid var(--color-primary) !important;
+  color: var(--color-primary);
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.shop-btn:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+/* ---------- Media Queries ---------- */
+
+@media (max-width: 992px) {
+  .category-card {
+    height: 380px;
+  }
+}
+
+@media (max-width: 900px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+  .categories {
+    padding: 48px 6%;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-card {
+    height: 340px;
+  }
+  .category-card-inner img {
+    height: 100px;
+  }
+  .category-card h3 {
+    font-size: 0.95rem;
+  }
+  .category-card p {
+    font-size: 0.8rem;
+  }
+  .shop-btn {
+    padding: 6px 16px;
+    font-size: 0.85rem;
+  }
+}

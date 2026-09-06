@@ -1,0 +1,22 @@
+.products {
+  background-color: #FDEEE6;
+  padding: 64px 8%;
+  text-align: center;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+@media (max-width: 900px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .products { padding: 48px 6%; }
+}

@@ -1,0 +1,29 @@
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 48px;
+}
+
+.title-prefix {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-right: 12px;
+}
+
+.title-ribbon {
+  position: relative;
+  background-color: var(--color-secondary);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 10px 32px 10px 24px;
+  clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
+}
+
+@media (max-width: 480px) {
+  .title-prefix { font-size: 1.3rem; }
+  .title-ribbon { font-size: 0.95rem; padding: 8px 24px 8px 18px; }
+}
