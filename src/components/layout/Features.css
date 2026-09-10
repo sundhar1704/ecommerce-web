@@ -60,3 +60,38 @@
 }
 
 /* ---------- Media Queries ---------- */
+
+@media (max-width: 992px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .feature-card {
+    height: 380px;
+  }
+}
+
+@media (max-width: 480px) {
+  .features {
+    padding: 48px 6%;
+  }
+  .feature-card {
+    height: 340px;
+    border-width: 6px;
+  }
+  .feature-icon-img {
+    width: 100px;
+    height: 100px;
+  }
+  .feature-card h3 {
+    font-size: 1rem;
+  }
+  .feature-card p {
+    font-size: 0.8rem;
+  }
+}
