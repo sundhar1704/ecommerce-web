@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { Star, ShoppingCart } from 'lucide-react'
 import { categoryProducts } from '../data/categoryProducts'
 import { useCart } from '../context/CartContext'
+import { useAuth } from '../context/AuthContext'
 import './ProductDetail.css'
 
 const allProducts = Object.values(categoryProducts).flat()
@@ -10,6 +11,7 @@ function ProductDetail() {
   const { id } = useParams()
   const navigate = useNavigate()
   const { addToCart } = useCart()
+  const { currentUser } = useAuth()
 
   const product = allProducts.find((p) => p.id === id)
 
@@ -22,15 +24,19 @@ function ProductDetail() {
     )
   }
 
- const handleAddToCart = () => {
-  addToCart({ name: product.name, price: product.price, image: product.image })
-  navigate('/cart')
-}
+  const handleAddToCart = () => {
+    addToCart({ name: product.name, price: product.price, image: product.image })
+  }
 
-const handleBuyNow = () => {
-  addToCart({ name: product.name, price: product.price, image: product.image })
-  navigate('/Checkout')
-}
+  const handleBuyNow = () => {
+    addToCart({ name: product.name, price: product.price, image: product.image })
+    if (currentUser) {
+      navigate('/checkout')
+    } else {
+      navigate('/login', { state: { from: '/checkout' } })
+    }
+  }
+
   return (
     <section className="product-detail-page">
       <div className="product-detail-grid">

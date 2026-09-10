@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { User } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import './Auth.css'
@@ -10,6 +10,9 @@ function Login() {
   const [error, setError] = useState('')
   const { login } = useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
+
+  const from = location.state?.from || '/'
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -19,7 +22,7 @@ function Login() {
       setError(result.message)
       return
     }
-    navigate('/')
+    navigate(from)
   }
 
   return (
@@ -55,7 +58,8 @@ function Login() {
         </form>
 
         <p className="auth-footer-text">
-          Don't Have An Account <Link to="/signup" className="auth-link">Create Now?</Link>
+          Don't Have An Account{' '}
+          <Link to="/signup" state={{ from }} className="auth-link">Create Now?</Link>
         </p>
       </div>
     </section>

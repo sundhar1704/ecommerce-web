@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { User } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import './Auth.css'
@@ -15,6 +15,9 @@ function Signup() {
   const [success, setSuccess] = useState(false)
   const { signup } = useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
+
+  const from = location.state?.from || '/'
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -59,7 +62,9 @@ function Signup() {
         <div className="auth-card auth-success">
           <h2>Account created successfully!</h2>
           <p>Your email is ready to use — log in now.</p>
-          <button className="auth-btn" onClick={() => navigate('/login')}>Go to Login</button>
+          <button className="auth-btn" onClick={() => navigate('/login', { state: { from } })}>
+            Go to Login
+          </button>
         </div>
       </section>
     )
@@ -129,7 +134,8 @@ function Signup() {
         </form>
 
         <p className="auth-footer-text">
-          Already Have An Account <Link to="/login" className="auth-link">Log In</Link>
+          Already Have An Account{' '}
+          <Link to="/login" state={{ from }} className="auth-link">Log In</Link>
         </p>
       </div>
     </section>
